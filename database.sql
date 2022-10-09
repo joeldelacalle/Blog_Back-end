@@ -26,6 +26,11 @@ updated_at  datetime DEFAULT NULL,
 CONSTRAINT pk_categories PRIMARY KEY(id)
 )ENGINE=InnoDb;
 
+INSERT INTO `categories`(`id`,`name`,`created_at`,`updated_at`) VALUES (NULL,'Ordenadores',NOW(),NOW());
+INSERT INTO `categories`(`id`,`name`,`created_at`,`updated_at`) VALUES (NULL,'Smartphones',NOW(),NOW());
+INSERT INTO `categories`(`id`,`name`,`created_at`,`updated_at`) VALUES (NULL,'Tablets',NOW(),NOW());
+
+
 CREATE TABLE IF NOT EXISTS posts(
 id          int(255) auto_increment NOT NULL,
 user_id     int(255) NOT NULL,
@@ -39,3 +44,6 @@ CONSTRAINT pk_posts PRIMARY KEY(id),
 CONSTRAINT fk_post_user FOREIGN KEY(user_id) REFERENCES users(id),
 CONSTRAINT fk_post_category FOREIGN KEY(category_id) REFERENCES categories(id)
 )ENGINE=InnoDb;
+
+INSERT INTO `posts`(`id`,`user_id`,`category_id`,`title`,`content`,`image`,`created_at`,`updated_at`) VALUES (NULL,1,1,'MSI','Marca MSI de ordenadores y portátiles', NULL,NOW(),NOW());
+INSERT INTO `posts`(`id`,`user_id`,`category_id`,`title`,`content`,`image`,`created_at`,`updated_at`) VALUES (NULL,1,2,'Samsung galaxy S 10+','No me termina de convencer la cámara frontal y desaría algo más de bateria', NULL,NOW(),NOW());
